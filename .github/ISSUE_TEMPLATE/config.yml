@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/gsqlhttyy-ops/ctkf-community/security/advisories/new
+    about: Report vulnerabilities privately. Do not open a public security issue.
+  - name: CTKF Pro
+    url: https://pay.truststream.top/
+    about: Plans, commercial assessment, and paid support.

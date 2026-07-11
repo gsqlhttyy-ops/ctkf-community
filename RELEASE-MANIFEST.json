@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "ctkf.community-release-index.v1",
+  "releaseId": "ctkf-community",
+  "version": "0.1.0",
+  "sourceRevision": "454689fa6f040b04843406fb212163f792a55b85",
+  "files": [
+    {
+      "path": ".github/CODEOWNERS",
+      "sha256": "709592038139cc26c1a70247dc30cc2d18583b3c9d4826c30ecc93f3c49ed179",
+      "size": 115
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "sha256": "da641cdc9c2b4bd6a326cb9ef1c17e5f42002859ebdd6743060e625e18564527",
+      "size": 263
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "sha256": "27f5ae0790010e0a85440508f49fa51238ea497db9f0367fdfb64860eda22e47",
+      "size": 43
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug.yml",
+      "sha256": "e88786c785604819d77890d0daf11678c5ecb92e31613e517d3bed967acbfdca",
+      "size": 935
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "sha256": "fc329803e2c4ec5b7916c3f805b657c1c302bc09a4775442b08f4427a05fd768",
+      "size": 355
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "sha256": "c56a0ca2bea3152e9bd5a3acda70947484dea55ec1161b6ae3f09e0d9e664cb5",
+      "size": 457
+    },
+    {
+      "path": ".github/workflows/community.yml",
+      "sha256": "f6ad5c998fe33dd2d43ce0d072c993d21b6e429d3a9b68cc4da9c39c34ed4730",
+      "size": 1535
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "66fcf55a33170d06322129d2c1ca3bffe90021a2e5ed1a42286461491bba1fcc",
+      "size": 83
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "239df3116eaab15a44cdb88b417d615c39d4024f0799fca6931d6ddef862eceb",
+      "size": 394
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "sha256": "5680aff0757d6e65346ff9f8baef7e4aa7ae76295663b043294acc92d914e1ae",
+      "size": 576
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "e6a1c451f239a3881875454d06bc4abf384b0b05fe2e6eed806edf7201ed3433",
+      "size": 574
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "5b4ebbd5b60ba3880b233551e3fcf68aaeae91aac52272b6d1fb8d4d44fd6232",
+      "size": 857
+    },
+    {
+      "path": "docs/editions.md",
+      "sha256": "6606535d12ff9b8259b5d88e079408cf2e75b62e40a2d854fe07a4c4913eda9d",
+      "size": 1211
+    },
+    {
+      "path": "examples/booking-requirements.zh-CN.txt",
+      "sha256": "3e7c985efa807d494c7f4dc001798f5b32b4340647fad2a2325ad83058d66944",
+      "size": 692
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "c4bce22c5ac2400aad068eb44d4f48abedbdbae19314f35c60e676d5d0b6f7c5",
+      "size": 11346
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "1d77e6e84a392509f55c5563858a8662c8000dbbc62ba6f3086bf50cc0884463",
+      "size": 263
+    },
+    {
+      "path": "PROVENANCE.json",
+      "sha256": "fb7fe15b678375ff897f6d913a1a504efb5df285aac2103b5a80ab783acdb775",
+      "size": 277
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "6d292dc0e226393367fd0c809e6418dfbadc86dcf0387deec8feab177626fa79",
+      "size": 894
+    },
+    {
+      "path": "README.md",
+      "sha256": "6ece82ef09592810596802a37f25b266e1f83ae967c4a9e8ea8c7f349d8b52df",
+      "size": 2938
+    },
+    {
+      "path": "SBOM.cdx.json",
+      "sha256": "193af145b2907e8bee228f1954b6b0f024b94efe87de5728b145860436fd562d",
+      "size": 236
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "759059246eaa16e3db7f620c273553b7d07b15e617fb32071b15640d4d37e9c7",
+      "size": 511
+    },
+    {
+      "path": "src/ctkf_community/__init__.py",
+      "sha256": "a0b7987f6c662af99c488c15990e7d6d80fbf443a5c0dba337c30a9e00ec5a46",
+      "size": 108
+    },
+    {
+      "path": "src/ctkf_community/cli.py",
+      "sha256": "d6c09ca7864708d5d6169b2ffaaf67a75f0888f614be6afe6d79662ca9d67434",
+      "size": 20779
+    },
+    {
+      "path": "SUPPORT.md",
+      "sha256": "ba8f7f11cf614f52310a39cf0d6d696ea768c5a4f2e9ebd1314e599267d1cb4a",
+      "size": 398
+    },
+    {
+      "path": "tests/test_cli.py",
+      "sha256": "d13b778608ed2f9d5b237658981d57d78983ffc3cd46db1e5f5be1300134d799",
+      "size": 3286
+    },
+    {
+      "path": "TRADEMARKS.md",
+      "sha256": "88a16850e82b752a23d23690d94761c2ada1218a93428f1eddc197d1ca851de6",
+      "size": 459
+    }
+  ]
+}
