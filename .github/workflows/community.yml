@@ -31,8 +31,16 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install Community package
-        run: python -m pip install -e .
+      - name: Build installable wheel
+        run: python -m pip wheel . --no-deps --wheel-dir dist
+
+      - name: Install the built wheel
+        run: python -m pip install --no-deps --force-reinstall dist/*.whl
+
+      - name: Check installed runtime
+        run: |
+          ctkf-community --version
+          ctkf-community doctor
 
       - name: Run unit and negative-path tests
         run: python -m unittest discover -s tests -v
@@ -41,9 +49,6 @@ jobs:
         run: |
           ctkf-community init --requirements examples/booking-product-brief.zh-CN.txt --project generated/booking-demo --ide codex
           ctkf-community verify --project generated/booking-demo
-
-      - name: Build installable wheel
-        run: python -m pip wheel . --no-deps --wheel-dir dist
 
       - name: Upload wheel
         if: matrix.python-version == '3.12'

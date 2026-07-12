@@ -11,13 +11,30 @@ Codex、CatPaw 或 OpenCode 执行的受治理开发包。它不会直接承诺�
 
 ### 10 分钟快速开始
 
+以下命令安装已检出的正式源码快照，不使用可编辑安装。Windows PowerShell：
+
 ```powershell
-git clone https://github.com/gsqlhttyy-ops/ctkf-community.git
+git clone --depth 1 --branch v0.2.0 https://github.com/gsqlhttyy-ops/ctkf-community.git
 cd ctkf-community
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e .
+.\.venv\Scripts\python.exe -m pip install .
+.\.venv\Scripts\ctkf-community.exe --version
+.\.venv\Scripts\ctkf-community.exe doctor
 .\.venv\Scripts\ctkf-community.exe init --requirements examples\booking-product-brief.zh-CN.txt --project generated\booking-demo --ide codex
 .\.venv\Scripts\ctkf-community.exe status --project generated\booking-demo
+```
+
+macOS 或 Linux：
+
+```bash
+git clone --depth 1 --branch v0.2.0 https://github.com/gsqlhttyy-ops/ctkf-community.git
+cd ctkf-community
+python3 -m venv .venv
+.venv/bin/python -m pip install .
+.venv/bin/ctkf-community --version
+.venv/bin/ctkf-community doctor
+.venv/bin/ctkf-community init --requirements examples/booking-product-brief.zh-CN.txt --project generated/booking-demo --ide codex
+.venv/bin/ctkf-community status --project generated/booking-demo
 ```
 
 然后在 AI IDE 中打开 `generated\booking-demo`，让 AI 先阅读 `RUNBOOK.md`。
@@ -33,6 +50,7 @@ python -m venv .venv
 - 生成 Codex、CatPaw、OpenCode 可执行的运行手册。
 - 在本地验证来源哈希、阶段顺序、任务依赖和任务契约。
 - 运行时不依赖第三方 Python 包。
+- 通过 `doctor` 检查 Python、终端字符输出、原子文件写入和运行时版本。
 
 Community 是真正可用的基础版本，但只证明本地规划包完整性。真实商用发布
 仍需要项目级安全测试、浏览器验证、部署、监控、回滚和真实生产证据。
@@ -50,9 +68,11 @@ execution package for Codex, CatPaw, or OpenCode. It preserves the source,
 detects high-impact questions, creates the authoritative 19-stage delivery
 mainline, and generates 57 traceable atomic tasks.
 
-Install with `python -m pip install -e .`, run `ctkf-community init`, then open
-the generated project and follow `RUNBOOK.md`. A passing Community verification
-proves planning-package integrity only; it is not a production-readiness claim.
+Install a tagged source snapshot with `python -m pip install .`, run
+`ctkf-community doctor`, and then run `ctkf-community init`. Open the generated
+project and follow `RUNBOOK.md`. A passing doctor or Community verification
+proves local runtime or planning-package integrity only; neither is a
+production-readiness claim.
 
 ## Security and license
 

@@ -7,9 +7,12 @@ import hashlib
 import json
 import os
 import re
+import sys
 import tempfile
 from pathlib import Path
 from typing import Any
+
+from ctkf_community import __version__
 
 PASS = "PASS"  # noqa: S105 - governance result token, not a credential.
 BLOCK = "BLOCK"
@@ -376,6 +379,68 @@ def status(project: Path) -> dict[str, Any]:
     return report
 
 
+def doctor() -> dict[str, Any]:
+    checks: list[dict[str, str]] = []
+
+    python_supported = sys.version_info >= (3, 10)
+    checks.append(
+        {
+            "id": "python-version",
+            "result": PASS if python_supported else BLOCK,
+            "message": f"Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}",
+        }
+    )
+
+    declared_output_encoding = sys.stdout.encoding
+    output_encoding = declared_output_encoding or "utf-8"
+    try:
+        "CTKF 中文输出".encode(output_encoding)
+        encoding_supported = True
+    except (LookupError, UnicodeEncodeError):
+        encoding_supported = False
+    checks.append(
+        {
+            "id": "stdout-encoding",
+            "result": PASS if encoding_supported else BLOCK,
+            "message": declared_output_encoding or "unicode-native redirected stream",
+        }
+    )
+
+    atomic_write_supported = False
+    try:
+        with tempfile.TemporaryDirectory(prefix="ctkf-community-doctor-") as temporary:
+            probe = Path(temporary) / "atomic-write.txt"
+            _write_text(probe, "ctkf-community-doctor")
+            atomic_write_supported = probe.read_text(encoding="utf-8").strip() == "ctkf-community-doctor"
+    except OSError:
+        atomic_write_supported = False
+    checks.append(
+        {
+            "id": "atomic-write",
+            "result": PASS if atomic_write_supported else BLOCK,
+            "message": "temporary-directory atomic replace is available" if atomic_write_supported else "temporary-directory atomic replace failed",
+        }
+    )
+
+    checks.append(
+        {
+            "id": "runtime-version",
+            "result": PASS if re.fullmatch(r"\d+\.\d+\.\d+", __version__) else BLOCK,
+            "message": __version__,
+        }
+    )
+    result = PASS if all(item["result"] == PASS for item in checks) else BLOCK
+    return {
+        "schemaVersion": "ctkf.community-doctor.v1",
+        "result": result,
+        "version": __version__,
+        "supportedIdes": list(SUPPORTED_IDES),
+        "maxRequirementBytes": MAX_DOCUMENT_BYTES,
+        "checks": checks,
+        "claimBoundary": "PASS proves that this local CTKF Community runtime can execute its basic filesystem and output contracts; it does not prove generated-application or production readiness.",
+    }
+
+
 def _verification_report(root: Path, findings: list[dict[str, str]], stage_count: int, task_count: int) -> dict[str, Any]:
     return {
         "schemaVersion": "ctkf.community-verification.v1",
@@ -413,6 +478,7 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="ctkf-community", description="Govern plain-language requirements before AI implementation")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     sub = parser.add_subparsers(dest="command", required=True)
     init = sub.add_parser("init", help="Create a governed planning package from a long text requirement")
     init.add_argument("--requirements", required=True, type=Path)
@@ -423,6 +489,7 @@ def build_parser() -> argparse.ArgumentParser:
     verify_command.add_argument("--project", required=True, type=Path)
     status_command = sub.add_parser("status", help="Show package integrity and unresolved question gates")
     status_command.add_argument("--project", required=True, type=Path)
+    sub.add_parser("doctor", help="Check local runtime compatibility without reading project or customer data")
     return parser
 
 
@@ -433,8 +500,10 @@ def main(argv: list[str] | None = None) -> int:
             report = initialize(args.requirements, args.project, args.ide, args.force)
         elif args.command == "verify":
             report = verify(args.project)
-        else:
+        elif args.command == "status":
             report = status(args.project)
+        else:
+            report = doctor()
     except (OSError, ValueError) as exc:
         report = {"schemaVersion": "ctkf.community-error.v1", "result": BLOCK, "error": str(exc)}
     print(json.dumps(report, ensure_ascii=False, indent=2))
