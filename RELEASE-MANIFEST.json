@@ -1,8 +1,8 @@
 {
   "schemaVersion": "ctkf.community-release-index.v1",
   "releaseId": "ctkf-community",
-  "version": "0.1.1",
-  "sourceRevision": "581bc56029b4147c0c1eacbb5d768895ee2700f9",
+  "version": "0.1.2",
+  "sourceRevision": "f0ea005054b47adfae68524448600fee17620a07",
   "files": [
     {
       "path": ".github/CODEOWNERS",
@@ -21,7 +21,7 @@
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug.yml",
-      "sha256": "003e1aeaf194d4a516c673029989b378c09e9a6fbb203b287073dab64cfb5ae4",
+      "sha256": "60161e4308de10b50557c2463581cbb81155493986768750e8a215815dde8d39",
       "size": 935
     },
     {
@@ -36,7 +36,7 @@
     },
     {
       "path": ".github/workflows/community.yml",
-      "sha256": "457b84e301255be3009e8afb4c46be8ab90bd059758e7fca19f4c346fbe0b9eb",
+      "sha256": "90f7fb367f63cc3688358a792cf8a2fa9bde3b9f54ad56aee5dc6c76655680dd",
       "size": 1536
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "af41c5369d13b84f86f6b2d552a7328d67c88c26ad4b6acc02ed316f956cbc0b",
-      "size": 648
+      "sha256": "88b989874227b3eb772278e9328ba53e3facb62e31c00db7ae754cdf04c3cd1a",
+      "size": 873
     },
     {
       "path": "CODE_OF_CONDUCT.md",
@@ -86,12 +86,12 @@
     },
     {
       "path": "PROVENANCE.json",
-      "sha256": "790181f9673e2b7fde9c4d797bd57263ab659e11504ce00471592051809bbf05",
+      "sha256": "28ec82d43bf6d962e1444c86c7b9de2b310b31dc637003f132d7bbf8670c3131",
       "size": 277
     },
     {
       "path": "pyproject.toml",
-      "sha256": "009fed6f78ffee76494e3a0592d2e5eb1b3e8535da92665089e11328d9098e3b",
+      "sha256": "ce6a858259750b89166fbc1eec86441876a1cf235e95eee2c93838d3ff2833e3",
       "size": 894
     },
     {
@@ -101,7 +101,7 @@
     },
     {
       "path": "SBOM.cdx.json",
-      "sha256": "59469766dc8c7a85b0868113f0e874cf4c9f2971fb05653ca205a1503340211e",
+      "sha256": "02ff2ba856c096a4233587f22b85c40d9b2611ee604225c090acac1ebffc6e1e",
       "size": 236
     },
     {
@@ -111,7 +111,7 @@
     },
     {
       "path": "src/ctkf_community/__init__.py",
-      "sha256": "8092615ad76ee14c26287e3e284dcbc168b9dc9d73f027c3b3dee48deadee640",
+      "sha256": "7a21a2431c1483e9384902811c298010edc0491918504666df9909713e5f39a0",
       "size": 108
     },
     {
@@ -126,8 +126,8 @@
     },
     {
       "path": "tests/test_cli.py",
-      "sha256": "20285f30807c8882fe3be2caef57bfb5a8b54f9be04af6dd4ddabe1864be0592",
-      "size": 3752
+      "sha256": "6f8a6903c59ea5e7066bdbc38519757c86510a6b5d6c1fe19c6b7773b262cfbf",
+      "size": 3964
     },
     {
       "path": "TRADEMARKS.md",

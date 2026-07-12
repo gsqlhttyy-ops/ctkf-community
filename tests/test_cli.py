@@ -3,12 +3,17 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
+from importlib.metadata import version
 from pathlib import Path
 
+from ctkf_community import __version__
 from ctkf_community.cli import BLOCK, PASS, initialize, verify
 
 
 class CommunityCliTests(unittest.TestCase):
+    def test_runtime_and_distribution_versions_match(self) -> None:
+        self.assertEqual(version("ctkf-community"), __version__)
+
     def test_public_examples_do_not_use_dependency_manifest_names(self) -> None:
         repository_root = Path(__file__).resolve().parents[1]
         collisions = sorted(
