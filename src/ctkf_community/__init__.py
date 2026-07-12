@@ -1,3 +1,3 @@
 """CTKF Community: requirement-to-execution planning for personal AI development."""
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"

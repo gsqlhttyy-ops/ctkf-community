@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+- Upgraded the pinned GitHub Actions revisions for checkout, Python setup, and wheel artifact upload.
+- Added release-contract checks that keep package, manifest, issue-template, and runtime versions synchronized.
+
 ## 0.1.1
 
 - Renamed the plain-language example so dependency managers cannot misclassify it as a Python requirements manifest.
