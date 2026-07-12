@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+- Added `ctkf-community doctor` and `--version` for local runtime diagnosis.
+- Changed CI to install and test the built wheel instead of relying on an editable source install.
+- Added explicit Windows and macOS/Linux installation paths and artifact-first verification guidance.
+
 ## 0.1.2
 
 - Upgraded the pinned GitHub Actions revisions for checkout, Python setup, and wheel artifact upload.

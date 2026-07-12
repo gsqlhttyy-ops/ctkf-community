@@ -3,16 +3,46 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
-from importlib.metadata import version
+from contextlib import redirect_stdout
+from importlib.metadata import PackageNotFoundError, version
+from io import StringIO
 from pathlib import Path
 
 from ctkf_community import __version__
-from ctkf_community.cli import BLOCK, PASS, initialize, verify
+from ctkf_community.cli import BLOCK, PASS, build_parser, doctor, initialize, main, verify
 
 
 class CommunityCliTests(unittest.TestCase):
     def test_runtime_and_distribution_versions_match(self) -> None:
-        self.assertEqual(version("ctkf-community"), __version__)
+        try:
+            distribution_version = version("ctkf-community")
+        except PackageNotFoundError:
+            repository_root = Path(__file__).resolve().parents[1]
+            pyproject = (repository_root / "public" / "pyproject.toml").read_text(encoding="utf-8")
+            self.assertIn(f'version = "{__version__}"', pyproject)
+        else:
+            self.assertEqual(distribution_version, __version__)
+
+    def test_doctor_reports_runtime_contract_without_customer_data(self) -> None:
+        report = doctor()
+
+        self.assertEqual(PASS, report["result"], report["checks"])
+        self.assertEqual(__version__, report["version"])
+        self.assertEqual(
+            {"python-version", "stdout-encoding", "atomic-write", "runtime-version"},
+            {item["id"] for item in report["checks"]},
+        )
+        self.assertNotIn("project", report)
+
+    def test_doctor_and_version_are_public_cli_contracts(self) -> None:
+        args = build_parser().parse_args(["doctor"])
+        self.assertEqual("doctor", args.command)
+        output = StringIO()
+        with redirect_stdout(output):
+            exit_code = main(["doctor"])
+
+        self.assertEqual(0, exit_code)
+        self.assertEqual(PASS, json.loads(output.getvalue())["result"])
 
     def test_public_examples_do_not_use_dependency_manifest_names(self) -> None:
         repository_root = Path(__file__).resolve().parents[1]
