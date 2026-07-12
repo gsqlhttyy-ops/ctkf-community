@@ -39,7 +39,7 @@ jobs:
 
       - name: Run end-to-end requirement smoke test
         run: |
-          ctkf-community init --requirements examples/booking-requirements.zh-CN.txt --project generated/booking-demo --ide codex
+          ctkf-community init --requirements examples/booking-product-brief.zh-CN.txt --project generated/booking-demo --ide codex
           ctkf-community verify --project generated/booking-demo
 
       - name: Build installable wheel

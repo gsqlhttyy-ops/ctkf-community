@@ -1,8 +1,8 @@
 {
   "schemaVersion": "ctkf.community-release-index.v1",
   "releaseId": "ctkf-community",
-  "version": "0.1.0",
-  "sourceRevision": "454689fa6f040b04843406fb212163f792a55b85",
+  "version": "0.1.1",
+  "sourceRevision": "581bc56029b4147c0c1eacbb5d768895ee2700f9",
   "files": [
     {
       "path": ".github/CODEOWNERS",
@@ -21,7 +21,7 @@
     },
     {
       "path": ".github/ISSUE_TEMPLATE/bug.yml",
-      "sha256": "e88786c785604819d77890d0daf11678c5ecb92e31613e517d3bed967acbfdca",
+      "sha256": "003e1aeaf194d4a516c673029989b378c09e9a6fbb203b287073dab64cfb5ae4",
       "size": 935
     },
     {
@@ -36,8 +36,8 @@
     },
     {
       "path": ".github/workflows/community.yml",
-      "sha256": "f6ad5c998fe33dd2d43ce0d072c993d21b6e429d3a9b68cc4da9c39c34ed4730",
-      "size": 1535
+      "sha256": "457b84e301255be3009e8afb4c46be8ab90bd059758e7fca19f4c346fbe0b9eb",
+      "size": 1536
     },
     {
       "path": ".gitignore",
@@ -46,8 +46,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "239df3116eaab15a44cdb88b417d615c39d4024f0799fca6931d6ddef862eceb",
-      "size": 394
+      "sha256": "af41c5369d13b84f86f6b2d552a7328d67c88c26ad4b6acc02ed316f956cbc0b",
+      "size": 648
     },
     {
       "path": "CODE_OF_CONDUCT.md",
@@ -70,7 +70,7 @@
       "size": 1211
     },
     {
-      "path": "examples/booking-requirements.zh-CN.txt",
+      "path": "examples/booking-product-brief.zh-CN.txt",
       "sha256": "3e7c985efa807d494c7f4dc001798f5b32b4340647fad2a2325ad83058d66944",
       "size": 692
     },
@@ -86,22 +86,22 @@
     },
     {
       "path": "PROVENANCE.json",
-      "sha256": "fb7fe15b678375ff897f6d913a1a504efb5df285aac2103b5a80ab783acdb775",
+      "sha256": "790181f9673e2b7fde9c4d797bd57263ab659e11504ce00471592051809bbf05",
       "size": 277
     },
     {
       "path": "pyproject.toml",
-      "sha256": "6d292dc0e226393367fd0c809e6418dfbadc86dcf0387deec8feab177626fa79",
+      "sha256": "009fed6f78ffee76494e3a0592d2e5eb1b3e8535da92665089e11328d9098e3b",
       "size": 894
     },
     {
       "path": "README.md",
-      "sha256": "6ece82ef09592810596802a37f25b266e1f83ae967c4a9e8ea8c7f349d8b52df",
-      "size": 2938
+      "sha256": "2aad4929aa5fee324db5d62e7d1e9ad58499ae202b8d327eef1598c7b53d0f11",
+      "size": 2939
     },
     {
       "path": "SBOM.cdx.json",
-      "sha256": "193af145b2907e8bee228f1954b6b0f024b94efe87de5728b145860436fd562d",
+      "sha256": "59469766dc8c7a85b0868113f0e874cf4c9f2971fb05653ca205a1503340211e",
       "size": 236
     },
     {
@@ -111,7 +111,7 @@
     },
     {
       "path": "src/ctkf_community/__init__.py",
-      "sha256": "a0b7987f6c662af99c488c15990e7d6d80fbf443a5c0dba337c30a9e00ec5a46",
+      "sha256": "8092615ad76ee14c26287e3e284dcbc168b9dc9d73f027c3b3dee48deadee640",
       "size": 108
     },
     {
@@ -126,8 +126,8 @@
     },
     {
       "path": "tests/test_cli.py",
-      "sha256": "d13b778608ed2f9d5b237658981d57d78983ffc3cd46db1e5f5be1300134d799",
-      "size": 3286
+      "sha256": "20285f30807c8882fe3be2caef57bfb5a8b54f9be04af6dd4ddabe1864be0592",
+      "size": 3752
     },
     {
       "path": "TRADEMARKS.md",

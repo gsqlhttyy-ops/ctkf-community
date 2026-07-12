@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Renamed the plain-language example so dependency managers cannot misclassify it as a Python requirements manifest.
+- Added a fail-closed publication rule and negative-path test for dependency-manifest filename collisions in public examples.
+
 ## 0.1.0
 
 - Added long plain-language requirement intake with source hashing.

@@ -16,7 +16,7 @@ git clone https://github.com/gsqlhttyy-ops/ctkf-community.git
 cd ctkf-community
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
-.\.venv\Scripts\ctkf-community.exe init --requirements examples\booking-requirements.zh-CN.txt --project generated\booking-demo --ide codex
+.\.venv\Scripts\ctkf-community.exe init --requirements examples\booking-product-brief.zh-CN.txt --project generated\booking-demo --ide codex
 .\.venv\Scripts\ctkf-community.exe status --project generated\booking-demo
 ```
 
