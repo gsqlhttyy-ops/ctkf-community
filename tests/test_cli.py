@@ -9,6 +9,16 @@ from ctkf_community.cli import BLOCK, PASS, initialize, verify
 
 
 class CommunityCliTests(unittest.TestCase):
+    def test_public_examples_do_not_use_dependency_manifest_names(self) -> None:
+        repository_root = Path(__file__).resolve().parents[1]
+        collisions = sorted(
+            path.relative_to(repository_root).as_posix()
+            for path in (repository_root / "examples").rglob("*.txt")
+            if "requirements" in path.name.casefold()
+        )
+
+        self.assertEqual([], collisions, "example names must not be parsed as dependency manifests")
+
     def test_long_plain_language_intake_materializes_mainline_and_atomic_backlog(self) -> None:
         requirement = """# 目标
 开发一个可以收费的在线预约网站，用户注册后可以预约顾问并在线支付。
